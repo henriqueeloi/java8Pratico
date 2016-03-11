@@ -1,20 +1,14 @@
 package br.com.eloi;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.eloi.model.Usuario;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Java8Application.class)
 public class Capitulo2Lambdas {
 
 	List<Usuario> usuariosList = null;
@@ -35,7 +29,7 @@ public class Capitulo2Lambdas {
 		usuariosList.forEach(mostrador);
 				
 		Consumer<Usuario> mostrador2 = u -> System.out.println(u.getNome());
-		usuariosList.forEach(mostrador);
+		usuariosList.forEach(mostrador2);
 		
 		//Forma mais simples ainda
 		usuariosList.forEach(u -> System.out.println(u.getNome()));		

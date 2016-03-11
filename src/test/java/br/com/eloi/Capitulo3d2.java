@@ -2,14 +2,9 @@ package br.com.eloi;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.eloi.api.Validador;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Java8Application.class)
 public class Capitulo3d2 {
 
 	@Test
