@@ -15,13 +15,17 @@ import br.com.eloi.model.Usuario;
 public class Capitulo6 {
 
 	List<Usuario> usuariosList = null;
+	List<Usuario> usuariosListComNull = null;
 
 	@Before
 	public void setup() {
 		Usuario usuario1 = new Usuario("Henrique Eloi", 150);
 		Usuario usuario2 = new Usuario("Karina Santander", 120);
 		Usuario usuario3 = new Usuario("Isabella Santander", 190);		
+		//Usuario usuarioNull = new Usuario(null, 290);		
 		usuariosList = Arrays.asList(usuario1, usuario2, usuario3);
+		
+		usuariosListComNull = Arrays.asList(usuario1, usuario2, usuario3);
 	}
 
 	@Test
@@ -49,5 +53,19 @@ public class Capitulo6 {
 		usuariosList.forEach(u -> System.out.println(u.getNome()));
 	}
 	
+	
+	@Test
+	public void testCompondoComparators(){
+		usuariosList.sort(Comparator.comparingInt(Usuario::getPontos).thenComparing(Usuario::getNome));			
+		
+		usuariosList.forEach(u -> System.out.println("Composto: " + u.getNome()));		
+	}
+	
+	
+	@Test 
+	public void testNullosNoFinal(){
+		usuariosListComNull.sort(Comparator.nullsLast(Comparator.comparing(Usuario::getNome)));
+		usuariosListComNull.forEach(u -> System.out.println("NullsLast: " + u.getNome()));		
+	}
 
 }
