@@ -38,4 +38,8 @@ public class Usuario {
 	public void tornarModerador(){
 		this.moderador=true;
 	}
+	
+	public boolean getModerador(){
+		return this.moderador;
+	}
 }
