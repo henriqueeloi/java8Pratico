@@ -1,11 +1,11 @@
 package br.com.eloi;
 
+import static java.util.Comparator.comparing;
+
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
-import static java.util.Comparator.comparing;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,10 +22,10 @@ public class Capitulo6 {
 		Usuario usuario1 = new Usuario("Henrique Eloi", 150);
 		Usuario usuario2 = new Usuario("Karina Santander", 120);
 		Usuario usuario3 = new Usuario("Isabella Santander", 190);		
-		//Usuario usuarioNull = new Usuario(null, 290);		
+		Usuario usuarioNull = new Usuario(null, 290);		
 		usuariosList = Arrays.asList(usuario1, usuario2, usuario3);
 		
-		usuariosListComNull = Arrays.asList(usuario1, usuario2, usuario3);
+		usuariosListComNull = Arrays.asList(usuario1, usuario2, usuario3, usuarioNull);
 	}
 
 	@Test
@@ -61,11 +61,16 @@ public class Capitulo6 {
 		usuariosList.forEach(u -> System.out.println("Composto: " + u.getNome()));		
 	}
 	
-	
 	@Test 
 	public void testNullosNoFinal(){
-		usuariosListComNull.sort(Comparator.nullsLast(Comparator.comparing(Usuario::getNome)));
+		usuariosListComNull.sort(Comparator.comparing(Usuario::getNome, Comparator.nullsLast(Comparator.naturalOrder())));
 		usuariosListComNull.forEach(u -> System.out.println("NullsLast: " + u.getNome()));		
+	}
+	
+	@Test
+	public void testNullosNoInicio(){
+		usuariosListComNull.sort(Comparator.comparing(Usuario::getNome, Comparator.nullsFirst(Comparator.naturalOrder())));
+		usuariosListComNull.forEach(u -> System.out.println("NullsFirst: " + u.getNome()));
 	}
 
 }

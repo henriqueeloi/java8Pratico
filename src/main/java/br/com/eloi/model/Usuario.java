@@ -42,4 +42,8 @@ public class Usuario {
 	public boolean getModerador(){
 		return this.moderador;
 	}
+	
+	public String toString(){
+		return "Usuario " +  nome;
+	}
 }
