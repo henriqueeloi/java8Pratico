@@ -2,9 +2,6 @@ package br.com.eloi;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,11 +12,10 @@ import br.com.eloi.model.Usuario;
  * 
  * @author Henrique Eloi
  *
- * Referenciando construtores
- * constructor reference
+ * Referenciando métodos que recebem argumentos
  */
 
-public class Capitulo6d5 {
+public class Capitulo6d6 {
 
 	List<Usuario> usuariosList = null;
 	List<Usuario> usuariosListComNull = null;
@@ -36,19 +32,8 @@ public class Capitulo6d5 {
 	}
 
 	@Test
-	public void usandoComInterfaceFuncional(){
-		Function<String ,Usuario> criadorDeUsuarios = Usuario::new;
-		Usuario Roger = criadorDeUsuarios.apply("Roger Eloi");
-		
-	}
-	
-	@Test
-	public void usandoBiFunction(){
-		BiFunction<String, Integer, Usuario> criadorDeUsuarios = Usuario::new;
-		
-		Usuario isaque = criadorDeUsuarios.apply("Isaque", 50);
-		Usuario iolanda = criadorDeUsuarios.apply("Iolanda", 100);
-		
+	public void testUsandoPrintln(){
+		usuariosList.forEach(System.out::println);
 	}
 	
 

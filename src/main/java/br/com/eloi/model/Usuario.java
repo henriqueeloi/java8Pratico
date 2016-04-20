@@ -5,6 +5,10 @@ public class Usuario {
 	private int pontos;
 	private boolean moderador;
 	
+	public Usuario(String nome) {
+		this.nome = nome;
+	}
+	
 	public Usuario(String nome, int pontos) {
 		this.pontos=pontos;
 		this.nome=nome;
