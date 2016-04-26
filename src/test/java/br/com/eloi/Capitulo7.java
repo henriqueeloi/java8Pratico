@@ -13,7 +13,7 @@ import br.com.eloi.model.Usuario;
  * 
  * @author Henrique Eloi
  *
- * Referenciando métodos que recebem argumentos
+ * 
  */
 
 public class Capitulo7 {
